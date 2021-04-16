@@ -25,21 +25,20 @@ export default ({ navigation, route }) => {
         tabBarIcon: ({ focused }) => {
           let iconName = Platform.OS === "ios" ? "ios-" : "md-";
           console.log(route);
-          if (route.name === "Tv") {
+          if (route.name === "TV") {
             iconName += "tv";
           } else if (route.name == "Movies") {
             iconName += "film";
           } else if (route.name == "Search") {
             iconName += "search";
-          } else if (route.name == "fav") {
+          } else if (route.name === "Discovery") {
             iconName += "heart";
           }
-          console.log(route.name, iconName);
           return (
             <Ionicons
               name={iconName}
               color={focused ? "white" : "grey"}
-              size={20}
+              size={26}
             />
           );
         },
@@ -53,9 +52,9 @@ export default ({ navigation, route }) => {
       }}
     >
       <Tabss.Screen name="Movies" component={Movies} />
-      <Tabss.Screen name="Tv" component={Tv} />
+      <Tabss.Screen name="TV" component={Tv} />
       <Tabss.Screen name="Search" component={Search} />
-      <Tabss.Screen name="fav" component={Favs} />
+      <Tabss.Screen name="Discovery" component={Favs} />
     </Tabss.Navigator>
   );
 };
